@@ -1,3 +1,5 @@
+from transformers import pipeline
+
 import json
 from models.request_model.llm_question.question_llm import QuestionLlm
 from flask import (
@@ -7,8 +9,14 @@ from flask import (
 )
 llm_blueprint = Blueprint('llm',__name__)
 
+
+def inf_llm(stringku):
+    generator = pipeline(model="google/flan-t5-small")
+    outputs = generator(stringku, num_return_sequences=1)
+    return outputs[0]['generated_text']
+
 @llm_blueprint.get('/api/v1/rizal')
 def rizalku():
-    data = {"name": "Alice", "age": 30, "city": "New York"}
-    json_data = json.dumps(json_data)
-    return redirect
+    data = req_flask.values.get('question')
+    outputnya = inf_llm(data)
+    return outputnya

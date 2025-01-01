@@ -6,9 +6,13 @@ authors = ["Rizal M"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "3.12.*"
 flask = "^3.1.0"
 pydantic = "^2.10.4"
+transformers = "^4.47.1"
+torch = {url = "https://download.pytorch.org/whl/cpu/torch-2.5.1%2Bcpu-cp312-cp312-win_amd64.whl"}
+torchaudio = {url = "https://download.pytorch.org/whl/cpu/torchaudio-2.5.1%2Bcpu-cp312-cp312-win_amd64.whl"}
+torchvision = {url = "https://download.pytorch.org/whl/cpu/torchvision-0.20.1%2Bcpu-cp312-cp312-win_amd64.whl"}
 
 
 [build-system]
